@@ -1,25 +1,39 @@
-# Projeto Final de POO - Grupo 1
+# Plataforma de Streaming — Grupo 1
 
-## Tema
+**Tema:** Streaming
 
-**Tema 2: Plataforma de Streaming**
+**Disciplina:** Programação Orientada a Objetos (IFCE Maranguape)
 
-## Integrantes da Equipe (Grupo 1)
+## Integrantes
 
-- **José Hamilton Meneses Filho** (`josehamilton62`)
-- **Ana Maria Gonçalves Alves** (`anaalves67`)
+- José Hamilton Meneses Filho (`josehamilton62`)
+- Ana Maria Gonçalves Alves (`anaalves67`)
 
-## Objetivo do Sistema
+## Objetivo do sistema
 
-Este sistema tem como objetivo gerenciar uma plataforma de streaming de filmes, documentários, séries, músicas e podcasts, permitindo controlar o catálogo de mídias, assinantes, playlists, downloads e histórico de reprodução no terminal.
+Gerenciar uma plataforma de streaming de filmes, documentários, séries, músicas e podcasts, permitindo controlar o catálogo de mídias, downloads, avaliações, assinantes, playlists e histórico de reprodução no terminal.
 
-## Documentação e Diagrama de Classes
+## Diagrama de classes
 
-- [Visualizar o Diagrama de Classes da Parte 1 (Mermaid)](./docs/diagrama.md)
+O diagrama de classes está em [docs/diagrama.md](docs/diagrama.md).
 
-## Como Executar (Parte 1 - Aula 04)
+## Parte 1: hierarquia
 
-Na raiz do repositório, execute no terminal:
+A classe base `Midia` centraliza os dados comuns de qualquer conteúdo (`titulo`, `duracao` e `classificacao`), especializando-se em três níveis de herança: `Filme` → `Documentario`, `Serie`, e `Audio` → `Musica` e `Podcast`.
+
+## Parte 2: classes abstratas e interfaces
+
+- **Classe abstrata:** `Midia`, com os métodos abstratos `reproduzir()` e `tempo_total()` e os métodos concretos `descrever()` e `__str__()`.
+- **Interfaces e quem as implementa:**
+
+| Interface   | Métodos                               | Classes que implementam                         |
+| ----------- | ------------------------------------- | ----------------------------------------------- |
+| `Baixavel`  | `baixar()`, `remover_download()`      | `Filme` (e `Documentario`), `Musica`, `Podcast` |
+| `Avaliavel` | `avaliar(nota)`, `media_avaliacoes()` | `Filme` (e `Documentario`), `Serie`             |
+
+## Como executar
+
+Abra o terminal na pasta do projeto e execute:
 
 ```bash
 python main.py

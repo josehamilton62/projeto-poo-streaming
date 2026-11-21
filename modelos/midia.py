@@ -1,14 +1,19 @@
-class Midia:
+from abc import ABC, abstractmethod
+
+
+class Midia(ABC):
     def __init__(self, titulo, duracao, classificacao):
         self.titulo = titulo
         self.duracao = duracao
         self.classificacao = classificacao
 
+    @abstractmethod
     def reproduzir(self):
-        return f"Reproduzindo '{self.titulo}'"
+        pass
 
+    @abstractmethod
     def tempo_total(self):
-        return self.duracao
+        pass
 
     def descrever(self):
         return (
